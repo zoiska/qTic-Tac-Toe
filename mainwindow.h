@@ -6,6 +6,7 @@
 #include <QPainter>
 #include <QMouseEvent>
 #include <QLabel>
+#include <QMap>
 #include <iostream>
 
 QT_BEGIN_NAMESPACE
@@ -35,14 +36,15 @@ public:
 private:
     Ui::MainWindow *ui;
     int count = 0;
-    bool box1_x;
-    bool box2_x;
-    bool box3_x;
-    bool box4_x;
-    bool box5_x;
-    bool box6_x;
-    bool box7_x;
-    bool box8_x;
-    bool box9_x;
+    QMap<int, bool*> x_bools;
+    bool *box1_x = new bool(false);
+    bool *box2_x = new bool(false);
+    bool *box3_x = new bool(false);
+    bool *box4_x = new bool(false);
+    bool *box5_x = new bool(false);
+    bool *box6_x = new bool(false);
+    bool *box7_x = new bool(false);
+    bool *box8_x = new bool(false);
+    bool *box9_x = new bool(false);
 };
 #endif // MAINWINDOW_H

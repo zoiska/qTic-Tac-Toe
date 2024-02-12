@@ -5,15 +5,15 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     ui->setupUi(this);
     setMouseTracking(true);
     initialize_Array();
-    box1_x = false;
-    box2_x = false;
-    box3_x = false;
-    box4_x = false;
-    box5_x = false;
-    box6_x = false;
-    box7_x = false;
-    box8_x = false;
-    box9_x = false;
+    x_bools[0] = box1_x;
+    x_bools[1] = box2_x;
+    x_bools[2] = box3_x;
+    x_bools[3] = box4_x;
+    x_bools[4] = box5_x;
+    x_bools[5] = box6_x;
+    x_bools[6] = box7_x;
+    x_bools[7] = box8_x;
+    x_bools[8] = box9_x;
 }
 
 MainWindow::~MainWindow(){
@@ -36,39 +36,39 @@ void MainWindow::paintEvent(QPaintEvent *event){
     painter.drawLine(100, 200, 400, 200);    //horizontal upper
     painter.drawLine(100, 300, 400, 300);    //horizontal lower
 
-    if(box1_x){
+    if(*box1_x){
         painter.drawLine(110, 110, 190, 190);
         painter.drawLine(110, 190, 190, 110);
     }
-    if(box2_x){
+    if(*box2_x){
         painter.drawLine(210, 110, 290, 190);
         painter.drawLine(210, 190, 290, 110);
     }
-    if(box3_x){
+    if(*box3_x){
         painter.drawLine(310, 110, 390, 190);
         painter.drawLine(310, 190, 390, 110);
     }
-    if(box4_x){
+    if(*box4_x){
         painter.drawLine(110, 210, 190, 290);
         painter.drawLine(110, 290, 190, 210);
     }
-    if(box5_x){
+    if(*box5_x){
         painter.drawLine(210, 210, 290, 290);
         painter.drawLine(210, 290, 290, 210);
     }
-    if(box6_x){
+    if(*box6_x){
         painter.drawLine(310, 210, 390, 290);
         painter.drawLine(310, 290, 390, 210);
     }
-    if(box7_x){
+    if(*box7_x){
         painter.drawLine(110, 310, 190, 390);
         painter.drawLine(110, 390, 190, 310);
     }
-    if(box8_x){
+    if(*box8_x){
         painter.drawLine(210, 310, 290, 390);
         painter.drawLine(210, 390, 290, 310);
     }
-    if(box9_x){
+    if(*box9_x){
         painter.drawLine(310, 310, 390, 390);
         painter.drawLine(310, 390, 390, 310);
     }
@@ -118,7 +118,7 @@ void MainWindow::eing(int place){
     }
     else {
         box[place] = 'X';
-        this->box1_x = true;
+        *(x_bools[place]) = true;
         update();
         count++;
         displayCount->setText(QString("count: %1").arg(count));
@@ -136,11 +136,11 @@ void MainWindow::check_Win(char *box, char player){
        || (box[0] == player && box[4] == player && box[8] == player)
        || (box[2] == player && box[4] == player && box[6] == player)){
         output->setText(QString("Spieler <%1> hat gewonnen").arg(player));
-        exit(0);
+        //exit(0);
     }
     else if(box[0] != '_' && box[1] != '_' && box[2] != '_' && box[3] != '_'&& box[4] != '_'
             && box[5] != '_' && box[6] != '_' && box[7] != '_' && box[8] != '_') {
         output->setText(QString("Unentschieden!"));
-        exit(0);
+        //exit(0);
     }
 }
