@@ -36,7 +36,9 @@ public:
 private:
     Ui::MainWindow *ui;
     int count = 0;
+    bool *game_won = new bool(false);
     QMap<int, bool*> x_bools;
+    QMap<int, bool*> o_bools;
     bool *box1_x = new bool(false);
     bool *box2_x = new bool(false);
     bool *box3_x = new bool(false);
@@ -46,5 +48,15 @@ private:
     bool *box7_x = new bool(false);
     bool *box8_x = new bool(false);
     bool *box9_x = new bool(false);
+
+    bool *box1_o = new bool(false);
+    bool *box2_o = new bool(false);
+    bool *box3_o = new bool(false);
+    bool *box4_o = new bool(false);
+    bool *box5_o = new bool(false);
+    bool *box6_o = new bool(false);
+    bool *box7_o = new bool(false);
+    bool *box8_o = new bool(false);
+    bool *box9_o = new bool(false);
 };
 #endif // MAINWINDOW_H
