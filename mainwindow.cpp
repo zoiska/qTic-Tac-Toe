@@ -150,7 +150,7 @@ void MainWindow::mousePressEvent(QMouseEvent* event){
     }
 }
 
-void MainWindow::initialize_Array(){
+void MainWindow::initialize_Array() const{
     for(int i = 0; i < 9; i++){
         box[i] = '_';
     }
@@ -172,11 +172,11 @@ void MainWindow::eing(int place){
         update();
         count++;
         displayCount->setText(QString("count: %1").arg(count));
-        check_Win(box, player);
+        check_Win(player);
     }
 }
 
-void MainWindow::check_Win(char *box, char player){
+void MainWindow::check_Win(char player){
     if((box[0] == player && box[1] == player && box[2] == player)
        || (box[3] == player && box[4] == player && box[5] == player)
        || (box[6] == player && box[7] == player && box[8] == player)

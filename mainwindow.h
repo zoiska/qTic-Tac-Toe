@@ -24,14 +24,14 @@ public:
     QLabel *displayCount = new QLabel("count: 0", this);
     QLabel *output = new QLabel("", this);
 
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    explicit MainWindow(QWidget *parent = nullptr);
+    ~MainWindow() override;
 
-    virtual void paintEvent(QPaintEvent *event);
+    void paintEvent(QPaintEvent *event) override;
     void mousePressEvent(QMouseEvent* event) override;
-    void initialize_Array();
+    void initialize_Array() const;
     void eing(int place);
-    void check_Win(char *box, char player);
+    void check_Win(char player);
 
 private:
     Ui::MainWindow *ui;
